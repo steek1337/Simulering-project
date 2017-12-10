@@ -1,0 +1,49 @@
+#define Pirsensor 10
+
+//Remove the button - int btn = 11;
+
+void setup()
+{
+
+  // sets the digital pins as output
+
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(1, OUTPUT);
+  //pinMode(btn, INPUT_PULLUP);
+
+  //Serial.begin(9600);
+  pinMode(Pirsensor, INPUT);
+
+}
+void loop()
+{
+  // Added Pirsensor
+  if(digitalRead(Pirsensor) == HIGH)
+
+  //if(digitalRead(btn) == HIGH)
+
+  {
+    for(int i = 0; i<=8; i++)
+    {
+      digitalWrite(i, HIGH);
+      //Serial.println("ON");
+      delay(200);
+    }
+  }
+  if(digitalRead(Pirsensor) == LOW)
+  //if(digitalRead(btn) == LOW)
+  {
+    for(int i = 0; i<=8; i++)
+    {
+      digitalWrite(i, LOW);
+      //Serial.println("OFF");
+      delay(200);
+    }
+  }
+}
